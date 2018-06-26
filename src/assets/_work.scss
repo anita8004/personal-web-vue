@@ -1,0 +1,200 @@
+/*作品aside*/
+
+#work .page_content{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.works_aside{
+  width: 350px;
+  min-height: 60vh;
+  flex: 1 1;
+  padding-right: 15px;
+}
+
+#work .works_list{
+  width: calc(100% - 350px);
+  flex: 3 1;
+  padding-left: 15px;
+}
+
+@media (max-width: 768px) {
+  .works_aside{
+    padding: 0 15px;
+    min-height: 0;
+  }
+  #work .works_list{
+    padding: 0;
+  }
+  .works_aside,#work .works_list{
+    width: 100%;
+    flex: inherit;
+  }
+}
+
+.aside_title{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.aside_list{
+  margin-bottom: 3rem;
+  li{
+    border-left: 0 solid transparent;
+    transition: all .3s $easeInOutSine;
+    border-bottom: 1px solid transparent;
+    a{
+      display: block;
+      text-decoration: none;
+      color: #000000;
+      padding: 5px 10px;
+    }
+    &:hover,&.active{
+      background-color: rgba($mc-light,.3);
+      border-left: 3px solid $mc;
+      border-bottom-color: $mc-compare;
+    }
+  }
+}
+
+.works_aside .search{
+  position: relative;
+  margin-bottom: 1.5rem;
+  .form-field{
+    width: 100%;
+    height: 35px;
+    padding: 5px 40px 5px 10px;
+    border: 1px solid $mc;
+    outline: 0;
+    &:focus{
+      box-shadow: 0 0 0 transparent;
+    }
+  }
+  .form-btn{
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    background-color: $mc;
+    color: #ffffff;
+    text-align: center;
+    border: 1px solid $mc;
+    outline: 0;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    transition: background-color .3s $easeInOutSine;
+    &:hover{
+      background-color: $mc-deep;
+    }
+  }
+}
+
+.works_aside .keywords{
+  font-size: 0;
+  margin-bottom: 1.5rem;
+  li{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px 5px 0;
+    background-color: $mc;
+    color: #ffffff;
+    font-size: .9rem;
+    border-radius: 3px;
+    transition: background-color .3s $easeInOutSine;
+    a{
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 2px 8px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    &:hover{
+      background-color: $mc-deep;
+    }
+  }
+}
+
+/* 作品列表 */
+
+.works_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 6vmin;
+  transition: height 0.5s ease-out;
+  .item {
+    width: 24%;
+    height: 25vmin;
+    min-height: 200px;
+    max-height: 500px;
+    padding: 15px;
+    transform-origin: center;
+    @media (max-width: 1440px) {
+      width: 32%;
+    }
+    @media (max-width: 1080px) {
+      width: 48%;
+    }
+    @media (max-width: 560px) {
+      width: 100%;
+    }
+    a {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: #000;
+      outline: 1px solid $mc-compare;
+      border: 15px solid #fff;
+      background-color: rgba($mc-light,.3);
+      position: relative;
+      padding: 15px;
+      transition: all .3s $easeInOutSine;
+    }
+
+    .item_title{
+      font-size: 1rem;
+      line-height: 1.3;
+      padding: 8px 15px 5px;
+      transition: letter-spacing .3s $easeInOutSine;
+    }
+
+    .keywords{
+      padding: 5px 15px;
+      font-size: 0;
+      align-self: end;
+      li{
+        display: inline-block;
+        vertical-align: top;
+        padding: 2px 0;
+        margin: 0 8px 0 0;
+        color: $mc;
+        font-size: .9rem;
+        transition: color .3s $easeInOutSine;
+        &:last-child{
+          margin-right: 0;
+        }
+        &:hover{
+          color: darken($mc, 20%);
+        }
+      }
+    }
+
+    &:hover{
+      a{
+        background-color: rgba($mc-light,.5);
+        outline-offset: 5px;
+      }
+      .item_title{
+        letter-spacing: .05rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+/*layout*/
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: "Noto Sans TC", "Arial", "微軟正黑體";
+}
+
+/*footer置底*/
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+
+
+/*common*/
+
+.container {
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.container:before {
+  content: "";
+  clear: both;
+}
+
+.container:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+img {
+  max-width: 100%;
+}
+
+.text-hide {
+  font-size: 0;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+
+%sty1-hoverbefore{
+  position: relative;
+  &:before{
+    content: '';
+    width: 0;
+    height: 5px;
+    background-color: $mc-deep;
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    transition: all .3s $easeInOutSine;
+  }
+}
+
+%sty1-hoverafter{
+  &:before{
+    width: 100%;
+  }
+}
+
+.sty1-hover{
+  @extend %sty1-hoverbefore;
+  &:hover{
+    @extend %sty1-hoverafter;
+  }
+}
