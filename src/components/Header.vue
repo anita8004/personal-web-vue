@@ -2,25 +2,21 @@
   <header id="header">
     <div class="container">
       <h1 class="logo">Personal Web</h1>
-      <button class="hamburger"><span class="icon-menu"></span><span class="text-hide">MENU</span></button>
+      <button class="hamburger" v-on:click.prevent="menuToggle"><span class="icon-menu"></span><span class="text-hide">MENU</span></button>
       <nav class="menu">
         <ul>
-          <li>
+          <li v-on:click="menuHide">
             <router-link exact to="/">HOME</router-link>
           </li>
-          <li>
+          <li v-on:click="menuHide">
             <router-link to="/about">ABOUT</router-link>
           </li>
-          <li>
+          <li v-on:click="menuHide">
             <router-link to="/project">PROJECT</router-link>
           </li>
-          <li>
+          <li v-on:click="menuHide">
             <router-link to="/work">WORK</router-link>
           </li>
-          <!-- <li class="active"><a href="./index.html">HOME</a></li>
-          <li><a href="about.html">ABOUT</a></li>
-          <li><a href="project.html">PROJECT</a></li>
-          <li><a href="work.html">WORK</a></li> -->
         </ul>
       </nav>
     </div>
@@ -28,11 +24,46 @@
 </template>
 
 <script>
+import $ from 'jquery'
+
 export default {
   name: 'Header',
-  data () {
-    return {
+  methods: {
+    menuToggle () {
+      $(event.currentTarget).toggleClass('open')
+      let $menu = $('header .menu')
+      $menu.toggleClass('open')
+      if ($menu.hasClass('open')) {
+        $menu.css({
+          transform: 'rotateX(0deg)',
+          transition: 'transform .5s cubic-bezier(0.445, 0.05, 0.55, 0.95)'
+        })
+      } else {
+        $menu.css({
+          transform: 'rotateX(90deg)',
+          transition: 'transform .5s cubic-bezier(0.445, 0.05, 0.55, 0.95)'
+        })
+      }
+    },
+    menuHide () {
+      let $menu = $('header .menu')
+      if ($menu.hasClass('open')) {
+        $menu.css({
+          transform: 'rotateX(0deg)',
+          transition: 'transform .5s cubic-bezier(0.445, 0.05, 0.55, 0.95)'
+        })
+      }
     }
+  },
+  mounted () {
+    $(window).on('resize', function () {
+      let $menu = $('header .menu')
+      if (window.matchMedia('(min-width: 769px)')) {
+        $('.hamburger').removeClass('open')
+        $menu.removeClass('open')
+        $menu.css({ transform: '', transition: '' })
+      }
+    }).trigger('resize')
   }
 }
 </script>

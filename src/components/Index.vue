@@ -68,6 +68,9 @@
 </template>
 
 <script>
+import $ from 'jquery'
+import '../../static/parallax.min.js'
+
 export default {
   name: 'Index',
   data () {
@@ -101,6 +104,16 @@ export default {
         }],
       contactBg: require('../assets/images/contact_bg.jpg')
     }
+  },
+  mounted () {
+    $('.parallax-window').each(function () {
+      if ($('.parallax-window').length > 0) {
+        $(this).parallax()
+      }
+    })
+  },
+  destroyed () {
+    $('.parallax-mirror').remove()
   }
 }
 </script>

@@ -1,7 +1,6 @@
 <template>
   <main id="main">
-    <div class="page_banner parallax-window" data-parallax="scroll" :data-image-src="banner">
-    </div>
+    <banner :page-banner="banner"></banner>
     <section class="page_wrap" id="about">
       <div class="container">
         <div class="page_content">
@@ -84,6 +83,8 @@
 </template>
 
 <script>
+import Banner from './Banner'
+
 export default {
   name: 'About',
   data () {
@@ -195,6 +196,9 @@ export default {
         }
       ]
     }
+  },
+  components: {
+    Banner
   }
 }
 </script>
