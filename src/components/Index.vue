@@ -20,25 +20,37 @@
             <div class="big_tit">A</div>
             <div class="tit">About</div>
             <p class="des">關於我</p>
-            <a href="about.html" class="view">Read More<span class="icon-keyboard_arrow_right"></span></a>
+            <router-link to="/about" class="view">
+              Read More
+              <span class="icon-keyboard_arrow_right"></span>
+            </router-link>
           </li>
           <li class="wow fadeInLeft">
             <div class="big_tit">W</div>
             <div class="tit">Work</div>
             <p class="des">js、css 練習項目</p>
-            <a href="work.html" class="view">Read More<span class="icon-keyboard_arrow_right"></span></a>
+            <router-link to="/work" class="view">
+              Read More
+              <span class="icon-keyboard_arrow_right"></span>
+            </router-link>
           </li>
           <li class="wow fadeInRight">
             <div class="big_tit">U</div>
             <div class="tit">UI / UX</div>
             <p class="des">UI / UX 練習項目</p>
-            <a href="work.html" class="view">Read More<span class="icon-keyboard_arrow_right"></span></a>
+            <router-link to="/work" class="view">
+              Read More
+              <span class="icon-keyboard_arrow_right"></span>
+            </router-link>
           </li>
           <li class="wow fadeInRight" data-wow-delay=".3s">
             <div class="big_tit">P</div>
             <div class="tit">Project</div>
             <p class="des">web 實作專案</p>
-            <a href="project.html" class="view">Read More<span class="icon-keyboard_arrow_right"></span></a>
+            <router-link to="/project" class="view">
+              Read More
+              <span class="icon-keyboard_arrow_right"></span>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -59,7 +71,9 @@
           <h3 class="title">CONTACT</h3>
           <a href="mailto:anita8004@gmail.com" class="icon wow fadeInUp"><span class="icon-envelope"></span><span class="txt">Mail</span></a>
           <a href="https://jsfiddle.net/user/anita8004/fiddles/" class="icon wow fadeInUp" target="_blank"><span class="icon-jsfiddle"></span><span class="txt">JsFiddle</span></a>
+          <a href="https://codepen.io/yunhsiu/pens/popular/" class="icon wow fadeInUp" target="_blank"><i class="fab fa-codepen"></i><span class="txt">Codepen</span></a>
           <a href="https://github.com/anita8004" class="icon wow fadeInUp" target="_blank"><span class="icon-github"></span><span class="txt">Github</span></a>
+          <a href="https://gitlab.com/anita8004" class="icon wow fadeInUp" target="_blank"><i class="fab fa-gitlab"></i><span class="txt">Gitlab</span></a>
           <a href="https://www.linkedin.com/in/yunhsiu-li-442228154/" class="icon wow fadeInUp" target="_blank"><span class="icon-linkedin"></span><span class="txt">LinkIn</span></a>
         </div>
       </div>
@@ -86,13 +100,13 @@ export default {
         },
         {
           id: 2,
-          title: 'yunhsiu-web (old)',
-          url: 'https://github.com/anita8004/yunhsiu-web',
-          img: require('../assets/images/current/old-web.png')
+          title: '個人網站 Ｖue 版',
+          url: 'https://github.com/anita8004/personal-web-vue',
+          img: require('../assets/images/current/personal-web.png')
         },
         {
           id: 3,
-          title: 'personal-web',
+          title: '個人網站',
           url: 'https://github.com/anita8004/personal-web',
           img: require('../assets/images/current/personal-web.png')
         },
